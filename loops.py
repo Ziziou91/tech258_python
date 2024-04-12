@@ -17,6 +17,7 @@ def double_numbers(nums: list) -> list:
 
     return double_nums
 
+
 def print_nested(nums_lists: list) -> None:
     print(f"\n{'=' * 60}")
     print(f"{'*' * 15}Flatten nested lists and print{'*' * 15}")
@@ -41,7 +42,70 @@ def print_nested(nums_lists: list) -> None:
     print(num_list)
     for value in num_list:
         print(value)
-        
+
+
+def print_values_nested_dict(my_dict: dict) -> None:
+    """Demonstrate printing values in nested dictionaries."""
+    print(f"\n{'=' * 60}")
+    print(f"{'*' * 11}Print values inside nested dictionaries{'*' * 10}")
+    print(f"{'=' * 60}")
+
+    print(f"{'-' * 10}Top level keys{'-' * 10}")
+    for val in my_dict:
+        print(val)
+
+    print(f"\n{'-' * 10}Values inside each nested dict{'-' * 10}")
+    vals_list = []
+    for val in my_dict:
+        nested_dict_values = my_dict[val].values()
+        vals_list += nested_dict_values
+        print(nested_dict_values)
+
+    print(f"\n{'-' * 10}Print values 1 by 1{'-' * 10}")
+    for val in vals_list:
+        print(val)
+
+    print(f"\n{'-' * 10}Print money values only{'-' * 10}")
+    for val in vals_list:
+        if val[0] == "$":
+            print(val)
+
+
+def while_loop_demo(x: int = 0) -> None:
+    """Function to demo how while loops work."""
+    print(f"\n{'=' * 60}")
+    print(f"{'*' * 16}Demo while loop functionality{'*' * 15}")
+    print(f"{'=' * 60}")
+    while x < 10:
+        print(f"print x -> {x}")
+        x += 1
+        if x > 4:
+            break
+
+
+def get_user_age() -> int:
+    """Asks a user to enter their age, check it can be cast as int and then return."""
+    print(f"\n{'=' * 60}")
+    print(f"{'*' * 16}Get and validate a users age{'*' * 16}")
+    print(f"{'=' * 60}")
+
+    age_str = input("Please enter your age: ")
+    # Input validation
+    valid_input = False
+    while not valid_input:
+        if age_str.isdigit():
+            age_int = int(age_str)
+            if age_int <= 117:
+                valid_input = True
+            else:
+                print(f"ERROR! {age_str} is too large.")
+                age_str = input("Please enter your age: ")
+
+        else:
+            print(f"ERROR! {age_str} is not a number.")
+            age_str = input("Please enter your age: ")
+
+    return age_int
 
 def main() -> None:
     """Main app functionality"""
@@ -56,8 +120,12 @@ def main() -> None:
 
     print_nested(embedded_lists)
 
+    print_values_nested_dict(dict_data)
 
+    while_loop_demo()
 
+    age = get_user_age()
+    print(age)
 
 if __name__ == "__main__":
     main()
