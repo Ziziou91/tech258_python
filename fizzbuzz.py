@@ -3,16 +3,13 @@ def main(count: int = 100) -> None:
     print(f"\n{'=' * 60}")
     print(f"{'*' * 26}fizzbuzz{'*' * 26}")
     print(f"{'=' * 60}")
-    for i in range(count):
-        fb_str = ""
-        if i == 0:
-            continue
-        if i % 3 == 0:
-            fb_str += "fizz"
-        if i % 5 == 0:
-            fb_str += "buzz"
-        if fb_str:
-            print(f"num {i} -> {fb_str}")
+    for i in range(1, count):
+        if i % 3 == 0 and i % 5 == 0:
+            print(f"num {i} -> fizzbuzz")
+        elif i % 3 == 0:
+            print(f"num {i} -> fizz")
+        elif i % 5 == 0:
+            print(f"num {i} -> buzz")
 
 
 if __name__ == "__main__":

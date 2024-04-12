@@ -1,6 +1,6 @@
 def double_numbers(nums: list) -> list:
-    print(f"{'='*60}")
-    print(f"{'*'*19}Double Numbers in list{'*'*19}")
+    print(f"{'=' * 60}")
+    print(f"{'*' * 19}Double Numbers in list{'*' * 19}")
     print(f"{'=' * 60}")
     """Takes a list of numbers and returns a list with each number doubled."""
     double_nums = []
@@ -90,30 +90,35 @@ def get_user_age() -> int:
     print(f"{'=' * 60}")
 
     age_str = input("Please enter your age: ")
+
     # Input validation
     valid_input = False
+    age_int = None
     while not valid_input:
         if age_str.isdigit():
+            print(f"age_str {age_str}")
+            # happy path
             age_int = int(age_str)
             if age_int <= 117:
                 valid_input = True
             else:
                 print(f"ERROR! {age_str} is too large.")
                 age_str = input("Please enter your age: ")
-
+        # sad path
         else:
             print(f"ERROR! {age_str} is not a number.")
             age_str = input("Please enter your age: ")
 
     return age_int
 
+
 def main() -> None:
     """Main app functionality"""
     list_data = [1, 2, 3, 4, 5]
-    embedded_lists = [[1,2,3],[4,5,6],[7,[8]]]
+    embedded_lists = [[1, 2, 3], [4, 5, 6], [7, [8]]]
     dict_data = {1: {"name": "Bronson", "money": "$0.05"},
-                2: {"name": "Masha", "money": "$3.66"},
-                3: {"name": "Roscoe", "money": "$1.14"}}
+                 2: {"name": "Masha", "money": "$3.66"},
+                 3: {"name": "Roscoe", "money": "$1.14"}}
 
     double_list = double_numbers(list_data)
     print(double_list)
@@ -126,6 +131,7 @@ def main() -> None:
 
     age = get_user_age()
     print(age)
+
 
 if __name__ == "__main__":
     main()
