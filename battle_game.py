@@ -94,7 +94,7 @@ def main() -> None:
 
     # Game is a series of rounds, taking turns to attack and defend
     round_count = 0
-    while fighter1["hp"] > 0 and fighter2["hp"] > 0 and round_count < 5:
+    while fighter1["hp"] > 0 and fighter2["hp"] > 0:
         battle_round(fighter1, fighter2, round_count)
         round_count += 1
 
